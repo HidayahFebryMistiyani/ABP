@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #c0e8ff, #d1c4fd);
+  color: #333;
+  padding: 40px 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background-color: #ffffffcc;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #4fc3f7;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  color: #0288d1;
+  font-style: italic;
+}
+
+.section-title {
+  font-size: 20px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #0288d1;
+  border-left: 4px solid #4fc3f7;
+  padding-left: 10px;
+}
+
+.section-text {
+  color: #444;
+  line-height: 1.6;
+}
+
+.skills {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.skills li {
+  background-color: #4fc3f7;
+  color: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.contact-info {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+  line-height: 1.8;
+  color: #555;
+}
+
+@media (max-width: 600px) {
+  .skills {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Tambahkan di bawah .section-text */
+.plain-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* Hapus atau ubah style .skills li kalau tidak dipakai */
+.skills {
+  display: none; /* optional: sembunyikan jika masih ada */
+}
