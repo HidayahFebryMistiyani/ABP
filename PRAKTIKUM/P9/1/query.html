@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Animasi jQuery Custom</title>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f4f4f4;
+        }
+
+        #circle {
+            width: 100px;
+            height: 100px;
+            background-color: #e74c3c;
+            border-radius: 50%;
+            position: relative;
+            margin: 30px auto;
+            transition: all 0.3s ease;
+        }
+
+        .btn-wrap {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #732d91;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Demo Animasi Lingkaran dengan jQuery</h2>
+
+    <div class="btn-wrap">
+        <button id="muncul">Munculkan</button>
+        <button id="hilang">Sembunyikan</button>
+        <button id="animasi">Animasi</button>
+    </div>
+
+    <div id="circle" style="display: none;"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#muncul').click(function() {
+                $('#circle').fadeIn();
+            });
+
+            $('#hilang').click(function() {
+                $('#circle').fadeOut();
+            });
+
+            $('#animasi').click(function() {
+                $('#circle').animate({
+                    left: '+=100px',
+                    width: '+=20px',
+                    height: '+=20px',
+                    opacity: 0.6
+                }, 600).animate({
+                    left: '0px',
+                    width: '100px',
+                    height: '100px',
+                    opacity: 1
+                }, 600);
+            });
+        });
+    </script>
+
+</body>
+</html>

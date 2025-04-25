@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Pendaftaran - Dengan Validasi</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Arial', sans-serif;
+    }
+    .container {
+      max-width: 500px;
+      margin-top: 50px;
+    }
+    h2 {
+      font-weight: 600;
+      color: #4caf50;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .form-label {
+      font-weight: bold;
+    }
+    .btn-primary {
+      background-color: #28a745;
+      border-color: #28a745;
+      width: 100%;
+      padding: 12px;
+    }
+    .btn-primary:hover {
+      background-color: #218838;
+      border-color: #1e7e34;
+    }
+    .invalid-feedback {
+      font-size: 0.9rem;
+      color: #dc3545;
+    }
+    .valid-feedback {
+      font-size: 0.9rem;
+      color: #28a745;
+    }
+    .form-control.is-valid {
+      border-color: #28a745;
+    }
+    .form-control.is-invalid {
+      border-color: #dc3545;
+    }
+  </style>
+</head>
+<body class="p-4">
+
+  <div class="container shadow-lg p-4 bg-white rounded">
+    <h2>Form Pendaftaran</h2>
+    <form id="formPendaftaran" novalidate>
+      <div class="mb-4">
+        <label for="nama" class="form-label">Nama</label>
+        <input type="text" class="form-control" id="nama" placeholder="Masukkan nama" required>
+        <div class="invalid-feedback">Nama tidak boleh kosong!</div>
+        <div class="valid-feedback">Nama sudah benar!</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Kirim</button>
+    </form>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $('#formPendaftaran').on('submit', function (e) {
+        e.preventDefault(); // Mencegah form terkirim secara default
+        let nama = $('#nama').val().trim();
+
+        if (nama === '') {
+          $('#nama').addClass('is-invalid').removeClass('is-valid');
+        } else {
+          $('#nama').removeClass('is-invalid').addClass('is-valid');
+          alert('Form berhasil dikirim!');
+          // Di sini bisa tambahkan logika kirim data ke server
+        }
+      });
+
+      // Hapus pesan error saat pengguna mulai mengetik
+      $('#nama').on('input', function () {
+        if ($(this).val().trim() !== '') {
+          $(this).removeClass('is-invalid');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
